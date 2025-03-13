@@ -45,11 +45,12 @@
     position: absolute;
     bottom: 70px;
     left: 50%;
-    transform: translateX(-46%);
+    transform: translateX(-48%);
   }
   #footer {
     padding: 15px 5px;
     font-size: 1rem;
     margin-right: 0;
+    transform: translateX(0%);
   }
 }
