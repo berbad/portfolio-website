@@ -40,15 +40,6 @@ function Home() {
           <li>
             <a href="#skincare-card">Skincare Website</a>
           </li>
-          <li>
-            <a
-              href="https://berdasonbadel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Portfolio Website
-            </a>
-          </li>
         </ul>
       </div>
     </section>

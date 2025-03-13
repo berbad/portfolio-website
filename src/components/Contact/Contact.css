@@ -6,12 +6,14 @@
   height: 20vh;
   text-align: center;
   padding: 0px 8%;
+  position: relative;
 }
 
 .contact-link {
   position: absolute;
-  bottom: 10px;
-  left: 850px;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
   text-decoration: underline;
   color: rgb(180, 180, 180);
   font-size: 2.7rem;
@@ -43,7 +45,7 @@
     font-size: 1.8rem;
     padding: 10px 20px;
     position: absolute;
-    bottom: 70px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-48%);
   }
