@@ -1,0 +1,72 @@
+.navbar {
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: #060F1F;
+    text-align: right;
+    z-index: 1000;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    margin: 10;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0px;
+  }
+  
+  .navbar ul li {
+    display: inline;
+  }
+  
+  .navbar ul li img {
+    width: 30px;
+    height: auto;
+    margin-left: -15px;
+  }
+  
+  .navbar ul li a {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+  
+  .github-icon,
+  .linkedin-icon {
+    width: 40px;
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .github-icon:hover,
+  .linkedin-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 10px 0;
+      text-align: center;
+      width: 100%;
+    }
+    .navbar ul {
+      justify-content: center;
+      padding-left: 40%;
+      margin: 0;
+      width: 100%;
+    }
+    .navbar ul li {
+      display: inline-block;
+      margin: 1 5px;
+    }
+    .navbar ul li a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  @media (max-width: 480px) {
+    .navbar ul li a {
+      font-size: 16px;
+    }
+  }
+  
