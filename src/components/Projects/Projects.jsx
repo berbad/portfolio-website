@@ -113,14 +113,14 @@ function Projects() {
           </p>
           <div className="project-icons">
             <a
-              href="https://github.com/yourgithub/cookiemunch"
+              href="https://github.com/berbad/comingsoon"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i className="fab fa-github"></i>
             </a>
             <a
-              href="https://yourprojecturl.com"
+              href="https://urlcomingsoon.com"
               target="_blank"
               rel="noopener noreferrer"
             >
