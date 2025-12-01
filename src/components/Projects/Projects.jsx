@@ -5,7 +5,7 @@ import internetLogo from "../../Logos/internet-logo.png";
 import discordLogo from "../../Logos/discord-logo.png";
 import githubLogo from "../../Logos/github-logo.png";
 import portfolioLogo from "../../Logos/PortfolioPicture.png";
-import websiteLogo from "../../Logos/SkicareWebsitePicture.png";
+import websiteLogo from "../../Logos/SkincareWebsitePicture.png";
 
 function Projects() {
   return (
