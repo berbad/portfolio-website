@@ -5,7 +5,7 @@ import internetLogo from "../../Logos/internet-logo.png";
 import discordLogo from "../../Logos/discord-logo.png";
 import githubLogo from "../../Logos/github-logo.png";
 import portfolioLogo from "../../Logos/PortfolioPicture.png";
-import websiteLogo from "../../Logos/underconstruction.png";
+import websiteLogo from "../../Logos/SkicareWebsitePicture.png";
 
 function Projects() {
   return (
@@ -93,38 +93,37 @@ function Projects() {
           </div>
         </div>
 
-        <h1>Currently Working on...</h1>
         <div className="project-card" id="skincare-card">
           <img
             src={websiteLogo}
             alt="underconstruction"
             className="websiteLogo"
           />
-          <h3>Skincare Website</h3>
+          <h3>Eternal Botanic</h3>
           <p>
-            A skincare e-commerce website where users can browse and purchase
-            high-quality skincare products. It features a clean and modern
-            design with a seamless user experience. Customers can create
-            accounts, manage their profiles, track order history, and leave
-            product reviews. The site includes a secure authentication system, a
-            functional cart, and a search bar for easy navigation. The site is
-            designed to be responsive and user-friendly, making it easy for
-            customers to explore and purchase skincare essentials.
+            A skincare e-commerce site where users can browse products, manage
+            accounts, track orders, and leave reviews. It includes secure
+            authentication, a functional cart, search, and a fully responsive
+            design for a smooth shopping experience.
           </p>
           <div className="project-icons">
             <a
-              href="https://github.com/berbad/comingsoon"
+              href="https://github.com/berbad/Skin-Ecommerce"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fab fa-github"></i>
+              <img src={githubLogo} alt="GitHub" className="github-icon" />
             </a>
             <a
-              href="https://urlcomingsoon.com"
+              href="https://eternalbotanic.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fas fa-globe"></i>
+              <img
+                src={internetLogo}
+                alt="internet"
+                className="internet-icon"
+              />
             </a>
           </div>
         </div>

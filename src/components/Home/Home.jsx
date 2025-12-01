@@ -38,7 +38,13 @@ function Home() {
             </a>
           </li>
           <li>
-            <a href="#skincare-card">Skincare Website</a>
+            <a
+              href="https://github.com/berbad/Skin-Ecommerce"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Eternal Botanic
+            </a>
           </li>
         </ul>
       </div>
