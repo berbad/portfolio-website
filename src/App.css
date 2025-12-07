@@ -1,6 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  background-color: #060F1F;
+  background-color: #060f1f;
   background-attachment: fixed;
   color: white;
   scroll-behavior: smooth;
@@ -9,12 +13,14 @@ body {
   width: 100%;
 }
 
-body, #home p {
+body,
+#home p {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 @media (max-width: 768px) {
-  html, body {
+  html,
+  body {
     height: auto !important;
     min-height: auto !important;
     overflow-x: hidden;
@@ -32,5 +38,3 @@ body, #home p {
     min-height: auto !important;
   }
 }
-
-
