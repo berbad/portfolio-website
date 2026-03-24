@@ -1,34 +1,39 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./App.css";
-import NavBar from "./components/NavBar/NavBar";
-import Home from "./components/Home/Home";
-import Projects from "./components/Projects/Projects";
-import About from "./components/About/About";
-import Contact from "./components/Contact/Contact";
+import NavBar from "./components/NavBar";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
-function App() {
+function Fonts() {
   useEffect(() => {
-    const links = document.querySelectorAll("nav ul li a");
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const targetId = link.getAttribute("href").substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (!targetElement) return;
-        e.preventDefault();
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      });
-    });
+    if (document.getElementById("gf-syne")) return;
+    const link = document.createElement("link");
+    link.id = "gf-syne";
+    link.rel = "stylesheet";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap";
+    document.head.appendChild(link);
   }, []);
-
-  return (
-    <div>
-      <NavBar />
-      <Home />
-      <Projects />
-      <About />
-      <Contact />
-    </div>
-  );
+  return null;
 }
 
-export default App;
+export default function App() {
+  return (
+    <>
+      <Fonts />
+      <NavBar />
+      <main>
+        <Hero />
+        <Projects />
+        <Skills />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}

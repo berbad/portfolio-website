@@ -1,40 +1,47 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  background-color: #060f1f;
-  background-attachment: fixed;
-  color: white;
-  scroll-behavior: smooth;
-  min-height: 100vh;
-  overflow-x: hidden;
-  width: 100%;
-}
-
-body,
-#home p {
+  background: #09090b;
+  color: #fafafa;
+  font-family: "DM Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
-@media (max-width: 768px) {
-  html,
-  body {
-    height: auto !important;
-    min-height: auto !important;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: auto;
-    background-attachment: scroll;
-    transform: none;
-  }
-  #home,
-  #projects,
-  #about,
-  #contact {
-    height: auto !important;
-    min-height: auto !important;
-  }
+
+::selection {
+  background: #6366f1;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
 }
