@@ -65,7 +65,7 @@ export default function Footer() {
           {[
             ["GitHub", "https://github.com/berbad"],
             ["LinkedIn", "https://linkedin.com/in/berdason-badel-294324179"],
-            ["Email", "mailto:berdasonbadel@gmail.com"],
+            ["Email", "mailto:berbad21@gmail.com"],
           ].map(([l, h]) => (
             <FooterLink key={l} label={l} href={h} />
           ))}
