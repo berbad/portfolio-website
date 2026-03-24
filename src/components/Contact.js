@@ -4,7 +4,7 @@ import { useIsMobile, Reveal, SectionLabel } from "./Shared";
 export default function Contact() {
   const [copied, setCopied] = useState(false);
   const mobile = useIsMobile();
-  const email = "berdasonbadel@gmail.com";
+  const email = "berbad21@gmail.com";
 
   const copy = () => {
     navigator.clipboard.writeText(email).then(() => {
