@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "https://leetgoat-amber.vercel.app/admin"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "https://leetgoat-amber.vercel.app/admin/:path*"
+    }
+  ]
+}
