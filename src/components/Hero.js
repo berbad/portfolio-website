@@ -11,8 +11,7 @@ export default function Hero() {
           <div className="hero-rule" aria-hidden="true" />
           <p className="hero-subtitle">Software engineer</p>
           <p className="hero-copy">
-            I work where <strong>software and infrastructure meet</strong>: building web apps,
-            automation, and tools shaped by real operational problems.
+            Software engineer with a background in network infrastructure.
           </p>
         </Reveal>
 
