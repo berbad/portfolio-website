@@ -1,203 +1,46 @@
-import { useState } from "react";
-import { useIsMobile, Reveal, SectionLabel } from "./Shared";
+import { Reveal, email } from "./Shared";
 
 export default function Contact() {
-  const [copied, setCopied] = useState(false);
-  const mobile = useIsMobile();
-  const email = "berbad21@gmail.com";
-
-  const copy = () => {
-    navigator.clipboard.writeText(email).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
   return (
-    <section
-      id="contact"
-      style={{
-        padding: mobile ? "70px 0 60px" : "100px 0 80px",
-        borderTop: "1px solid #18181b",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          bottom: -80,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: mobile ? 300 : 600,
-          height: mobile ? 200 : 400,
-          background:
-            "radial-gradient(ellipse, rgba(99,102,241,0.06) 0%, transparent 65%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      <div
-        style={{
-          maxWidth: 1080,
-          margin: "0 auto",
-          padding: mobile ? "0 20px" : "0 28px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
+    <section className="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div className="site-shell">
         <Reveal>
-          <SectionLabel n="04" label="Get in touch" />
-          <h2
-            style={{
-              fontFamily: "'Syne', sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(36px,6vw,72px)",
-              color: "#fafafa",
-              letterSpacing: "-0.03em",
-              lineHeight: 1.0,
-              marginBottom: 20,
-            }}
-          >
-            Let's work
-            <br />
-            <span style={{ color: "#6366f1" }}>together.</span>
+          <h2 className="eyebrow contact-eyebrow" id="contact-title">
+            Get in touch
           </h2>
-          <p
-            style={{
-              color: "#71717a",
-              fontSize: 15,
-              lineHeight: 1.75,
-              maxWidth: 460,
-              marginBottom: mobile ? 32 : 48,
-            }}
-          >
-            I'm actively looking for software engineering roles.
-          </p>
+          <div className="contact-panel">
+            <p className="contact-copy">
+              I'm actively looking for software engineering roles where I can bring together
+              hands-on infrastructure experience, product-minded development, and a steady habit
+              of shipping useful tools. The best way to reach me is via{" "}
+              <a href="https://linkedin.com/in/berdason-badel-294324179" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>{" "}
+              or{" "}
+              <a href={`mailto:${email}`}>
+                email
+              </a>
+              .
+            </p>
 
-          <div
-            style={{
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap",
-              marginBottom: mobile ? 32 : 48,
-              flexDirection: mobile ? "column" : "row",
-              maxWidth: mobile ? 280 : "none",
-            }}
-          >
-            <a
-              href={`mailto:${email}`}
-              style={{
-                padding: "13px 30px",
-                background: "#6366f1",
-                color: "#fff",
-                borderRadius: 6,
-                fontFamily: "'Syne', sans-serif",
-                fontWeight: 700,
-                fontSize: 14,
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 4px 20px rgba(99,102,241,0.25)",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#4f46e5";
-                e.currentTarget.style.boxShadow =
-                  "0 6px 28px rgba(99,102,241,0.38)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#6366f1";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 20px rgba(99,102,241,0.25)";
-              }}
-            >
+            <a className="email-text" href={`mailto:${email}`}>
+              {email}
+            </a>
+          </div>
+        </Reveal>
+
+        <Reveal className="contact-footer-row" delay={120}>
+          <p>Open to full-time software engineering roles and thoughtful collaborations.</p>
+          <div className="contact-actions">
+            <a className="button button-primary" href={`mailto:${email}`}>
               Send an email
             </a>
-            {[
-              ["GitHub ↗", "https://github.com/berbad"],
-              [
-                "LinkedIn ↗",
-                "https://linkedin.com/in/berdason-badel-294324179",
-              ],
-            ].map(([label, href]) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  padding: "13px 30px",
-                  background: "transparent",
-                  color: "#a1a1aa",
-                  border: "1px solid #27272a",
-                  borderRadius: 6,
-                  fontFamily: "'Syne', sans-serif",
-                  fontWeight: 600,
-                  fontSize: 14,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  transition: "all 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#3f3f46";
-                  e.currentTarget.style.color = "#fafafa";
-                  e.currentTarget.style.background = "#18181b";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#27272a";
-                  e.currentTarget.style.color = "#a1a1aa";
-                  e.currentTarget.style.background = "transparent";
-                }}
-              >
-                {label}
-              </a>
-            ))}
-          </div>
-
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 14,
-              padding: "10px 18px",
-              border: "1px solid #27272a",
-              borderRadius: 6,
-              background: "#18181b",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "monospace",
-                fontSize: mobile ? 12 : 13,
-                color: "#71717a",
-              }}
-            >
-              {email}
-            </span>
-            <button
-              onClick={copy}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                fontFamily: "monospace",
-                fontSize: 11,
-                color: copied ? "#22c55e" : "#52525b",
-                transition: "color 0.2s",
-                padding: 0,
-                letterSpacing: "0.06em",
-              }}
-              onMouseEnter={(e) => {
-                if (!copied) e.currentTarget.style.color = "#a1a1aa";
-              }}
-              onMouseLeave={(e) => {
-                if (!copied) e.currentTarget.style.color = "#52525b";
-              }}
-            >
-              {copied ? "COPIED ✓" : "COPY"}
-            </button>
+            <a className="button" href="https://github.com/berbad" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a className="button" href="https://linkedin.com/in/berdason-badel-294324179" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
           </div>
         </Reveal>
       </div>

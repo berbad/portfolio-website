@@ -1,24 +1,44 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import Hero from "./components/Hero";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import About from "./components/About";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { AboutPage, HomePage, MissionPage, ProjectsPage } from "./pages";
 
 function Fonts() {
   useEffect(() => {
-    if (document.getElementById("gf-syne")) return;
+    document.documentElement.classList.add("js");
+
+    if (document.getElementById("gf-portfolio-fonts")) return;
     const link = document.createElement("link");
-    link.id = "gf-syne";
+    link.id = "gf-portfolio-fonts";
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap";
+      "https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
   return null;
+}
+
+function usePathname() {
+  const [pathname, setPathname] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const onPopState = () => setPathname(window.location.pathname);
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  return pathname;
+}
+
+function CurrentPage() {
+  const pathname = usePathname();
+
+  if (pathname === "/projects") return <ProjectsPage />;
+  if (pathname === "/mission") return <MissionPage />;
+  if (pathname === "/about") return <AboutPage />;
+
+  return <HomePage />;
 }
 
 export default function App() {
@@ -27,11 +47,7 @@ export default function App() {
       <Fonts />
       <NavBar />
       <main>
-        <Hero />
-        <Projects />
-        <Skills />
-        <About />
-        <Contact />
+        <CurrentPage />
       </main>
       <Footer />
     </>

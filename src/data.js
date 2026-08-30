@@ -7,9 +7,9 @@ export const projects = [
     tags: ["React", "AWS Lambda", "MongoDB", "Node.js", "REST API"],
     github: "https://github.com/berbad/CityTireWebsite",
     live: "https://citytireshop.com",
-    accent: "#3b82f6",
-    accentRgb: "59,130,246",
-    mockupType: "webapp",
+    icon: "ct",
+    status: "Live",
+    year: "2024",
   },
   {
     id: "discord-trivia",
@@ -18,9 +18,9 @@ export const projects = [
       "Interactive trivia bot serving multiple Discord communities. Features real-time score tracking, multiple question categories, leaderboards, and automated game management across servers.",
     tags: ["Node.js", "Discord.js", "JavaScript", "REST API"],
     github: "https://github.com/berbad/TriviaBot",
-    accent: "#8b5cf6",
-    accentRgb: "139,92,246",
-    mockupType: "bot",
+    icon: "dt",
+    status: "Open source",
+    year: "2024",
   },
   {
     id: "eternal-botanic",
@@ -30,9 +30,9 @@ export const projects = [
     tags: ["JavaScript", "CSS", "HTML", "Responsive Design"],
     github: "https://github.com/berbad/Skin-Ecommerce",
     live: "https://eternalbotanic.com",
-    accent: "#10b981",
-    accentRgb: "16,185,129",
-    mockupType: "ecommerce",
+    icon: "eb",
+    status: "Live",
+    year: "2025",
   },
 ];
 
@@ -52,5 +52,23 @@ export const skillCategories = [
   {
     category: "Tools & Infra",
     skills: ["Git", "Linux", "Docker", "Cisco IOS-XR", "Networking Protocols"],
+  },
+];
+
+export const career = [
+  {
+    year: "Then",
+    role: "Network / Telecom Engineering",
+    detail: "Cell site migrations, router configs, backhaul infrastructure, and production-minded troubleshooting.",
+  },
+  {
+    year: "Current",
+    role: "Network / Telecom Engineering",
+    detail: "Still working close to infrastructure while building software, automation, and web products alongside it.",
+  },
+  {
+    year: "Next",
+    role: "Full-time engineering role",
+    detail: "Looking for teams that value craft, clarity, maintainability, and real-world product impact.",
   },
 ];

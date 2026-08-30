@@ -1,133 +1,132 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export function useIsMobile(breakpoint = 768) {
-  const [mobile, setMobile] = useState(false);
-  useEffect(() => {
-    const check = () => setMobile(window.innerWidth < breakpoint);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, [breakpoint]);
-  return mobile;
+export const email = "berbad21@gmail.com";
+
+export const navItems = [
+  ["Home", "/"],
+  ["Projects", "/projects"],
+  ["Mission", "/mission"],
+  ["About", "/about"],
+];
+
+export function navigateTo(path) {
+  if (window.location.pathname === path) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  window.history.pushState({}, "", path);
+  window.dispatchEvent(new Event("popstate"));
+  window.scrollTo({ top: 0 });
+}
+
+export function PageLink({ href, children, className = "", onClick, ...props }) {
+  const handleClick = (event) => {
+    onClick?.(event);
+    if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (!href.startsWith("/")) return;
+
+    event.preventDefault();
+    navigateTo(href);
+  };
+
+  return (
+    <a className={className} href={href} onClick={handleClick} {...props}>
+      {children}
+    </a>
+  );
 }
 
 export function useInView() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
+
+    if (!("IntersectionObserver" in window)) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
           setVisible(true);
-          obs.unobserve(el);
+          observer.unobserve(el);
         }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+      { threshold: 0.08, rootMargin: "0px 0px -56px 0px" },
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
+
   return { ref, visible };
 }
 
-export function Reveal({ children, delay = 0, style = {} }) {
+export function Reveal({
+  as: Component = "div",
+  children,
+  delay = 0,
+  className = "",
+  style,
+  ...props
+}) {
   const { ref, visible } = useInView();
+
   return (
-    <div
+    <Component
       ref={ref}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(22px)",
-        transition: `opacity 0.6s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
-        ...style,
-      }}
+      className={`reveal ${visible ? "is-visible" : ""} ${className}`.trim()}
+      style={{ ...style, transitionDelay: `${delay}ms` }}
+      {...props}
     >
       {children}
-    </div>
+    </Component>
   );
 }
 
-export function SectionLabel({ n, label }) {
+export function SectionHeading({ eyebrow, title, titleId, children }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 10,
-        marginBottom: 20,
-      }}
-    >
-      <span
-        style={{
-          fontFamily: "monospace",
-          fontSize: 11,
-          color: "#6366f1",
-          letterSpacing: "0.12em",
-          fontWeight: 500,
-        }}
-      >
-        {n}
-      </span>
-      <div
-        style={{
-          height: "1px",
-          width: 28,
-          background: "rgba(99,102,241,0.35)",
-        }}
-      />
-      <span
-        style={{
-          fontFamily: "monospace",
-          fontSize: 11,
-          color: "#3f3f46",
-          letterSpacing: "0.1em",
-        }}
-      >
-        {label.toUpperCase()}
-      </span>
-    </div>
+    <Reveal className="section-heading">
+      <div>
+        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+        <h2 className="section-title" id={titleId}>
+          {title}
+        </h2>
+      </div>
+      {children && <p className="section-copy">{children}</p>}
+    </Reveal>
   );
 }
 
-export function ExtLink({ href, label, color }) {
-  const [hov, setHov] = useState(false);
+export function PageHeader({ eyebrow, title, children }) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-      style={{
-        fontFamily: "monospace",
-        fontSize: 11,
-        color: hov ? color : "#52525b",
-        textDecoration: "none",
-        letterSpacing: "0.06em",
-        transition: "color 0.2s",
-      }}
-    >
-      {label} ↗
-    </a>
+    <section className="page-header" aria-labelledby="page-title">
+      <div className="site-shell">
+        <Reveal>
+          <p className="eyebrow">{eyebrow}</p>
+          <h1 className="section-title" id="page-title">
+            {title}
+          </h1>
+          {children && <p className="section-copy">{children}</p>}
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function ButtonLink({ href, children, variant = "default", className = "", ...props }) {
+  return (
+    <PageLink className={`button ${variant === "primary" ? "button-primary" : ""} ${className}`.trim()} href={href} {...props}>
+      {children}
+    </PageLink>
   );
 }
 
 export function Tag({ children }) {
-  return (
-    <span
-      style={{
-        fontFamily: "monospace",
-        fontSize: 11,
-        padding: "3px 9px",
-        border: "1px solid #27272a",
-        borderRadius: 4,
-        color: "#52525b",
-        background: "#09090b",
-      }}
-    >
-      {children}
-    </span>
-  );
+  return <span className="tag">{children}</span>;
 }
