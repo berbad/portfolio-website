@@ -9,12 +9,6 @@ const facts = [
 
 const timeline = [
   {
-    year: "Then",
-    title: "Network engineering",
-    copy:
-      "Cell site migrations, router configs, and backhaul infrastructure shaped how I think about reliability and operational tradeoffs.",
-  },
-  {
     year: "Current",
     title: "Network / telecom engineering",
     copy:
@@ -24,7 +18,7 @@ const timeline = [
     year: "Next",
     title: "Useful products at scale",
     copy:
-      "Looking for a role where product instincts, full-stack delivery, and infrastructure judgment can meet in one place.",
+      "Looking for a software role where I can build practical products and keep learning from real users.",
   },
 ];
 

@@ -57,11 +57,6 @@ export const skillCategories = [
 
 export const career = [
   {
-    year: "Then",
-    role: "Network / Telecom Engineering",
-    detail: "Cell site migrations, router configs, backhaul infrastructure, and production-minded troubleshooting.",
-  },
-  {
     year: "Current",
     role: "Network / Telecom Engineering",
     detail: "Still working close to infrastructure while building software, automation, and web products alongside it.",
@@ -69,6 +64,6 @@ export const career = [
   {
     year: "Next",
     role: "Full-time engineering role",
-    detail: "Looking for teams that value craft, clarity, maintainability, and real-world product impact.",
+    detail: "Looking for a software role where I can keep growing as an engineer while building things people use.",
   },
 ];
