@@ -1,5 +1,17 @@
 export const projects = [
   {
+    id: "eternal-botanic",
+    title: "Eternal Botanic",
+    description:
+      "E-commerce platform for a plant retailer. Browse products, manage a cart, and complete purchases — with dynamic filtering, persistent state, and a fully responsive mobile-first design.",
+    tags: ["JavaScript", "CSS", "HTML", "Responsive Design"],
+    github: "https://github.com/berbad/Skin-Ecommerce",
+    live: "https://eternalbotanic.com",
+    icon: "eb",
+    status: "Live",
+    year: "2025",
+  },
+  {
     id: "tire-shop",
     title: "City Tire Shop",
     description:
@@ -21,18 +33,6 @@ export const projects = [
     icon: "dt",
     status: "Open source",
     year: "2024",
-  },
-  {
-    id: "eternal-botanic",
-    title: "Eternal Botanic",
-    description:
-      "E-commerce platform for a plant retailer. Browse products, manage a cart, and complete purchases — with dynamic filtering, persistent state, and a fully responsive mobile-first design.",
-    tags: ["JavaScript", "CSS", "HTML", "Responsive Design"],
-    github: "https://github.com/berbad/Skin-Ecommerce",
-    live: "https://eternalbotanic.com",
-    icon: "eb",
-    status: "Live",
-    year: "2025",
   },
 ];
 
@@ -59,11 +59,13 @@ export const career = [
   {
     year: "Current",
     role: "Network / Telecom Engineering",
-    detail: "Still working close to infrastructure while building software, automation, and web products alongside it.",
+    detail:
+      "Still working close to infrastructure while building software, automation, and web products alongside it.",
   },
   {
     year: "Next",
     role: "Full-time engineering role",
-    detail: "Looking for a software role where I can keep growing as an engineer while building things people use.",
+    detail:
+      "Looking for a software role where I can keep growing as an engineer while building things people use.",
   },
 ];

@@ -10,11 +10,21 @@ function ProjectCard({ project, index }) {
         <p className="project-tech">{project.tags.join(" / ")}</p>
         <div className="project-actions">
           {project.live && (
-            <ButtonLink className="button-small" href={project.live} target="_blank" rel="noopener noreferrer">
+            <ButtonLink
+              className="button-small"
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Website
             </ButtonLink>
           )}
-          <ButtonLink className="button-small" href={project.github} target="_blank" rel="noopener noreferrer">
+          <ButtonLink
+            className="button-small"
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             GitHub
           </ButtonLink>
         </div>
@@ -36,8 +46,9 @@ export default function Projects({ preview = false, standalone = false }) {
     <section className="section" id="projects" aria-labelledby="projects-title">
       <div className="site-shell">
         {!standalone && (
-          <SectionHeading title="Some of my work" titleId="projects-title">
-            Shipped projects across local business software, community automation, and responsive commerce.
+          <SectionHeading title="My work" titleId="projects-title">
+            Shipped projects across local business software, community
+            automation, and e-commerce.
           </SectionHeading>
         )}
         {standalone && (
