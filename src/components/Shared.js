@@ -17,7 +17,6 @@ export function navigateTo(path) {
 
   window.history.pushState({}, "", path);
   window.dispatchEvent(new Event("popstate"));
-  window.scrollTo({ top: 0 });
 }
 
 export function PageLink({ href, children, className = "", onClick, ...props }) {

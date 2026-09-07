@@ -51,3 +51,17 @@ test("navigates between portfolio pages without leaving the app shell", () => {
   expect(screen.getByRole("heading", { level: 1, name: /make useful software/i })).toBeInTheDocument();
   expect(window.location.pathname).toBe("/mission");
 });
+
+test("resets scrolling instantly after the destination page renders", () => {
+  render(<App />);
+  window.scrollTo.mockClear();
+  const headingsAtScroll = [];
+  window.scrollTo.mockImplementation(() => {
+    headingsAtScroll.push(screen.getByRole("heading", { level: 1 }).textContent);
+  });
+
+  fireEvent.click(screen.getByRole("link", { name: "Projects" }));
+
+  expect(headingsAtScroll).toEqual(["Projects"]);
+  expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, left: 0, behavior: "instant" });
+});

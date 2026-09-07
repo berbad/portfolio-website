@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -33,6 +33,11 @@ function usePathname() {
 
 function CurrentPage() {
   const pathname = usePathname();
+
+  useLayoutEffect(() => {
+    // Reset after the destination renders, before paint; bypass smooth scrolling.
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
 
   if (pathname === "/projects") return <ProjectsPage />;
   if (pathname === "/mission") return <MissionPage />;
