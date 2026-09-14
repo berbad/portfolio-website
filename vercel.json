@@ -11,6 +11,21 @@
     {
       "source": "/_next/:path*",
       "destination": "https://leetgoat-amber.vercel.app/_next/:path*"
+    },
+    {
+      "source": "/projects",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mission",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/index.html"
     }
-  ]
+  ],
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build"
 }
