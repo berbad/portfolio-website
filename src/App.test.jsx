@@ -1,11 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/vitest";
 import App from "./App";
 import { projects } from "./data";
 
 beforeEach(() => {
   window.history.pushState({}, "", "/");
-  window.scrollTo = jest.fn();
+  window.scrollTo = vi.fn();
 
   class MockIntersectionObserver {
     observe() {}
