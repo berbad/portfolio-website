@@ -889,7 +889,7 @@ p {
   }
   .hero-image {
     inset: auto 0 0;
-    left: -12.5%;
+    left: calc(-12.5% - 18px);
     width: 125%;
     max-width: none;
     height: calc(68% + 16px);
