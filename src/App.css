@@ -894,7 +894,7 @@ p {
     max-width: none;
     height: calc(68% + 16px);
     object-fit: cover;
-    object-position: 56% bottom;
+    object-position: 100% bottom;
     transform: scale(0.8);
     transform-origin: center bottom;
     mask-image: linear-gradient(to top, #000 82%, transparent);
