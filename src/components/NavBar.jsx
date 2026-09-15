@@ -1,10 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { navItems, PageLink } from "./Shared";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [pathname, setPathname] = useState(window.location.pathname);
+  const menuButton = useRef(null);
+
+  useEffect(() => {
+    const dismiss = (event) => {
+      if (event.key === "Escape" && menuOpen) {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", dismiss);
+    return () => document.removeEventListener("keydown", dismiss);
+  }, [menuOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -27,33 +39,45 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`site-nav ${scrolled ? "is-scrolled" : ""} ${menuOpen ? "is-open" : ""}`} aria-label="Primary navigation">
+    <nav
+      className={`site-nav ${scrolled ? "is-scrolled" : ""} ${menuOpen ? "is-open" : ""}`}
+      aria-label="Primary navigation"
+    >
       <div className="site-shell nav-inner">
         <PageLink className="brand" href="/" onClick={() => setMenuOpen(false)}>
-          Berdason Badel
+          <span className="brand-first-name">Berdason</span>{" "}
+          <span className="brand-last-name">Badel</span>
         </PageLink>
 
-        <div className="nav-links">
+        <div className="nav-links" id="navigation-links">
           {navItems.map(([label, path]) => (
             <PageLink
               className={`nav-link ${pathname === path ? "is-active" : ""}`}
               href={path}
+              aria-current={pathname === path ? "page" : undefined}
               key={path}
               onClick={() => setMenuOpen(false)}
             >
               {label}
             </PageLink>
           ))}
-          <a className="nav-link nav-resume" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a
+            className="nav-link nav-resume"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Resume
           </a>
         </div>
 
         <button
           className="menu-toggle"
+          ref={menuButton}
           type="button"
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
+          aria-controls="navigation-links"
           onClick={() => setMenuOpen((open) => !open)}
         >
           <span className="menu-lines" aria-hidden="true">

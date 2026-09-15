@@ -1,27 +1,35 @@
-import { Reveal } from "./Shared";
+import { PageLink } from "./Shared";
 
 export default function Hero() {
   return (
-    <section className="hero" id="top" aria-labelledby="hero-title">
+    <section className="hero" aria-labelledby="hero-title">
+      <img
+        className="hero-image"
+        src="/berdason-studio.jpg"
+        alt="Berdason Badel"
+        width="1536"
+        height="1024"
+        fetchPriority="high"
+      />
       <div className="site-shell hero-layout">
-        <Reveal>
-          <h1 className="display-title hero-title" id="hero-title" aria-label="Berdason Badel">
-            Berdason Badel
+        <div className="hero-content">
+          <h1 id="hero-title" aria-label="Berdason Badel">
+            <span>Berdason</span>
+            <span>Badel</span>
           </h1>
-          <div className="hero-rule" aria-hidden="true" />
           <p className="hero-subtitle">Software engineer</p>
           <p className="hero-copy">
             Software engineer with a background in network infrastructure.
           </p>
-        </Reveal>
-
-        <Reveal className="hero-portrait" delay={140}>
-          <img
-            className="portrait-image"
-            src="/berdason-portrait.jpeg"
-            alt="Berdason Badel"
-          />
-        </Reveal>
+          <div className="hero-actions">
+            <PageLink className="button button-light" href="/projects">
+              View projects
+            </PageLink>
+            <a className="button button-outline-light" href="#contact">
+              Contact
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

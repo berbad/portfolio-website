@@ -1,0 +1,8 @@
+{
+  "mode": "experience",
+  "direction": "Bold photographic portfolio with compact interactive project cards",
+  "colors": {"ink":"#171717","dark":"#1b2125","navigation":"#030501","paper":"#f7f9fb","gray":"#d3dae5","muted":"#4a555d","line":"#c9ccd2"},
+  "typography": {"display":"Zalando Sans Expanded","controls":"Inter Tight","body":"Inter","heroSize":84,"sectionSize":48,"bodySize":18},
+  "layout": {"maxContentWidth":1208,"contentGutter":20,"navigationGutter":48,"breakpoints":[1025,1024,768,515,380]},
+  "status": "user-approved"
+}
